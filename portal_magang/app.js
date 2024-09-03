@@ -9,12 +9,26 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+const allowedOrigins = [
+  "https://orbitern-app-wisnu-saputras-projects.vercel.app",
+  "https://orbitern-app-git-master-wisnu-saputras-projects.vercel.app",
+  "https://orbitern-app.vercel.app",
+];
+
 app.use(
   cors({
-    credentials: true,
-    origin: "http://localhost:5173",
+    origin: function (origin, callback) {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // Jika menggunakan cookies atau session
   })
 );
+
+app.options("*", cors());
 
 app.use(cookieParser());
 app.use(express.json());
