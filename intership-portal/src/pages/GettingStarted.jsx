@@ -42,13 +42,13 @@ const GettingStarted = () => {
                     <button disabled className='px-4 py-2 rounded-xl bg-slate-300 font-semibold cursor-not-allowed'>Create account</button>
                 ) : (
                     btn === "company" ? (
-                        <a href={'/login-admin'}>
+                        <Link to={'/login-admin'}>
                             <button className='px-4 py-2 rounded-xl bg-secondary text-white font-semibold'>Join as a company</button>
-                        </a>
+                        </Link>
                     ) : (
-                        <a href={'/login'}>
+                        <Link to={'/login'}>
                             <button className='px-4 py-2 rounded-xl bg-secondary text-white font-semibold'>Apply as a student</button>
-                        </a>
+                        </Link>
                     )
                 )}
                 <p>Already have an account? <Link to={'/login'} className='text-blue-500 font-semibold'>Login</Link></p>
