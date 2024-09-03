@@ -8,6 +8,7 @@ import DataNotFound from '../../components/DataNotFound'
 import { foramterDate } from "../../utils/formaterDate"
 import Pagination from '../../components/Pagination'
 import { useDispatch, useSelector } from 'react-redux'
+import blank from '../../assets/img/blank.png'
 import { refreshTokenUser } from '../../redux/Action/LoginAction'
 
 const PengajuanDospem = () => {
@@ -47,9 +48,6 @@ const PengajuanDospem = () => {
         getList()
     }, [])
 
-    // useEffect(() => {
-    //     dispatch(refreshTokenUser())
-    // }, [dispatch])
 
     return (
         <div className='px-4'>
@@ -101,8 +99,8 @@ const PengajuanDospem = () => {
                                                         <div className="avatar">
                                                             <div className="mask mask-squircle h-12 w-12">
                                                                 <img
-                                                                    src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                                                                    alt="Avatar Tailwind CSS Component" />
+                                                                    src={item.Mahasiswa.profile_pict === null ? blank : item.Mahasiswa.profile_pict}
+                                                                    alt={item.nama} />
                                                             </div>
                                                         </div>
                                                         <div>
