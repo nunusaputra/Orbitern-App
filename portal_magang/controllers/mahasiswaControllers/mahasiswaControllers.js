@@ -184,7 +184,7 @@ module.exports = {
         { mhsId, name, email, profile_pict, linkCV },
         process.env.ACCESS_TOKEN_SECRET,
         {
-          expiresIn: "2m",
+          expiresIn: "1h",
         }
       );
 
@@ -209,6 +209,8 @@ module.exports = {
 
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
+        secure: true,
+        sameSite: "none",
         maxAge: 24 * 60 * 60 * 1000,
       });
 
