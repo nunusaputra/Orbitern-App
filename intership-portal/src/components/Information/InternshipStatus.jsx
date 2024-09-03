@@ -11,6 +11,7 @@ const color = {
     "applied": "bg-blue-500",
     "accepted": "bg-green-500",
     "rejected": "bg-third",
+    "canceled": "bg-orange-500",
 }
 
 const InternshipStatus = ({ token }) => {
